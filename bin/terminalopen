@@ -1,0 +1,22 @@
+#!/usr/bin/osascript
+# arg1   command
+# arg2   commandarg
+on run argv
+    tell application "Terminal" to activate
+    tell application "System Events"
+       tell process "Terminal"
+           delay 1.0 
+           keystroke "t" using {command down}
+           # enter
+           key code {52}
+           delay 1.0
+           keystroke item 1 of argv
+           # space
+           key code {49}
+           keystroke item 2 of argv
+           # enter
+           key code {52}
+       end tell
+    end tell
+end run
+
